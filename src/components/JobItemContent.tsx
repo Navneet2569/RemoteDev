@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 export default function JobItemContent() {
   const activeId = useActiveId();
 
-  const [jobItem, isLoading] = useJobItem(activeId);
+  const { jobItem, isLoading } = useJobItem(activeId);
 
   if (isLoading) {
     return (
@@ -69,7 +69,11 @@ export default function JobItemContent() {
             </div>
             <ul className="qualifications__list">
               {jobItem.qualifications.map((q) => {
-                return <li className="qualifications__item">{q}</li>;
+                return (
+                  <li key={q} className="qualifications__item">
+                    {q}
+                  </li>
+                );
               })}
             </ul>
           </section>
@@ -83,7 +87,11 @@ export default function JobItemContent() {
             </div>
             <ul className="reviews__list">
               {jobItem.reviews.map((r) => {
-                return <li className="reviews__item">{r}</li>;
+                return (
+                  <li key={r} className="reviews__item">
+                    {r}
+                  </li>
+                );
               })}
             </ul>
           </section>

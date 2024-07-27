@@ -1,3 +1,7 @@
-export default function ResultsCount({ jobItems }) {
-  return <p className="count">{jobItems.length} results</p>;
+export default function ResultsCount({ total }: number) {
+  return (
+    <p className="count">
+      <span className="u-bold">{total} </span> results
+    </p>
+  );
 }
